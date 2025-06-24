@@ -1,11 +1,10 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
-hi
+    <ProfileForm />
 </template>
 
-<style lang="scss">
 
-</style>
+<script setup lang="ts">
+import ProfileForm from './components/ProfileForm.vue'
+</script>
+
+<style lang="scss"></style>
