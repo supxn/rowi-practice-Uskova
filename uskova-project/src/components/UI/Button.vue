@@ -18,6 +18,7 @@ const props = defineProps({
 
 <style lang="scss">
 button{
+  //display: flex;
     color: black;
     margin: 5px;
     padding: 10px;

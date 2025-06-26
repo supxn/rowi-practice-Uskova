@@ -1,5 +1,5 @@
 <template>
-<input v-model="text" placeholder="Никнейм" required>
+<input  placeholder="Никнейм" required>
 
 </template>
 
@@ -9,10 +9,9 @@
 
 <style lang="scss">
 input{
-    display: flex;
+  
     margin: 5px;
     padding: 10px;
-    width: 300px; //??
     border: 1px solid black;
     border-radius: 3px;
 }

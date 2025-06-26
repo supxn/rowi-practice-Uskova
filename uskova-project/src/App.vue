@@ -1,10 +1,17 @@
 <template>
-    <ProfileForm />
+    <div class="area">
+        <Tabs />
+    </div>
 </template>
 
-
 <script setup lang="ts">
-import ProfileForm from './components/ProfileForm.vue'
+import Tabs from './components/Tabs.vue'
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.area {
+    width: 1200px;
+    margin: auto;
+
+}
+</style>

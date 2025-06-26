@@ -1,10 +1,10 @@
 <template>
-    <form id="profile">
-        <NicknameInput/>
+    <form id="profile" class="profileform">
+        <NicknameInput />
         <FIOInput />
         <PhoneInput />
     </form>
-    <Button buttonText="Сохранить" :disabled = "isDisabled"></Button>
+    <Button buttonText="Сохранить" :disabled="isDisabled"></Button>
 
 </template>
 
@@ -21,9 +21,33 @@ const dataForm = ref({
     FIO: "",
     number: ""
 });
-const isDisabled = computed(() => {
-    return dataForm.value.nickname==="" || dataForm.value.FIO==="" || dataForm.value.number==="";
+interface InputFields { //Возможно нужно будет вынести куда-то, а то некрасиво
+    title: string;
+    status: boolean;
+}
+const inputStatuses = ref<InputFields[]>([{
+    title: "nickname",
+    status: true
+}, {
+    title: "FIO",
+    status: true
+}, {
+    title: "number",
+    status: true
+}
+])
+
+const isDisabled = computed(() => {  //C кнопочкой вроде разобралась
+    for (const s of inputStatuses.value) {
+        if (!s.status) return true;
+    }
+    return false;
 });
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.profileform {
+    display: flex;
+    flex-direction: column;
+}
+</style>
