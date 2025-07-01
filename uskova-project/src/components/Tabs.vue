@@ -4,7 +4,7 @@
         <button @click="setTabStatus(2)">Личные данные</button>
         <button @click="setTabStatus(3)">Доверенные лица</button>
     </div>
-    <div v-if="tabStatus == 1 || tabStatus > 3" class="tabdiv">
+    <div v-if="showProfileForm" class="tabdiv">
         <ProfileForm />
     </div>
     <div v-else-if="tabStatus == 2" class="tabdiv">
@@ -12,7 +12,7 @@
         <Okak/>
         
     </div>
-    <div v-else="tabStatus==3" class="ыtabdiv">
+    <div v-else="tabStatus==3" class="tabdiv">
         Тоже в разработке
         <Okak/>
     </div>
@@ -20,16 +20,18 @@
 
 
 <script setup lang="ts">
-import ProfileForm from './ProfileForm.vue'
+import ProfileForm from './ProfileForm/ProfileForm.vue'
 import Okak from './Okak.vue'
 import { ref, computed } from 'vue';
-const tabStatus = ref(0); //С табами получается тоже разобралась, покрасить теперь нормально их
-const setTabStatus = (num: number) => {
+const tabStatus = ref(0);
+const setTabStatus = (num: number): void => {
     tabStatus.value = num;
 }
+
+const showProfileForm = computed(()=> tabStatus.value == 1 || tabStatus.value > 3);
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .tabchoose {
     display: flex;
     align-items: center;

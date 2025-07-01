@@ -1,5 +1,5 @@
 <template>
-<input placeholder="ФИО" required>
+<input placeholder="Пароль" required>
 
 </template>
 

@@ -7,7 +7,7 @@
 
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 input{
     margin: 5px;
     padding: 10px;

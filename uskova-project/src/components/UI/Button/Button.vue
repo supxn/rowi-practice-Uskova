@@ -4,19 +4,14 @@
 
 
 <script setup lang="ts">
-const props = defineProps({
-  buttonText: {
-    type: String,
-    required: true
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  }
+import {IProps} from "./ButtonTypes"
+const props = withDefaults(defineProps<IProps>(), {
+  disabled: false,
+  buttonText: '',
 });
 </script>
 
-<style lang="scss">
+<style  scoped  lang="scss">
 button{
   //display: flex;
     color: black;

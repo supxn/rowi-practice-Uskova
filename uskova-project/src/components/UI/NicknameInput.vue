@@ -1,15 +1,17 @@
 <template>
-<input  placeholder="Никнейм" required>
+    <input v-model="modelNickname" placeholder="Никнейм" required>
 
 </template>
 
 <script setup lang="ts">
+import {ref} from 'vue';
+const modelNickname = defineModel<string>();
 
 </script>
 
-<style lang="scss">
-input{
-  
+<style scoped lang="scss">
+input {
+
     margin: 5px;
     padding: 10px;
     border: 1px solid black;
