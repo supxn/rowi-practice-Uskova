@@ -1,21 +1,18 @@
 <template>
     <form id="profile" class="profileform">
-        <NicknameInput v-model ="dataForm.nickname"/>
-        <FIOInput />
-        <PhoneInput />
+        <Input v-model ="dataForm.nickname" fieldName = "nickname" placeholder="Никнейм" @validation="updateValidationStatus" required />
+        <Input v-model ="dataForm.FIO" fieldName = "FIO" placeholder="ФИО" @validation="updateValidationStatus" required />
+        <Input v-model ="dataForm.number" fieldName = "number" placeholder="Номер" @validation="updateValidationStatus" required />
+        <Input v-model ="dataForm.email" placeholder="e-mail" @validation="updateValidationStatus" required />
+        <Input v-model ="dataForm.password" fieldName = "password" placeholder="Пароль" @validation="updateValidationStatus" required />
     </form>
     <Button  buttonText="Сохранить" :disabled="isDisabled"></Button>
 </template>
-
-
 <script setup lang="ts">
 import Button from '../UI/Button/Button.vue'
-import NicknameInput from '../UI/NicknameInput.vue'
-import FIOInput from '../UI/FIOInput.vue'
-import PhoneInput from '../UI/PhoneInput.vue'
 import {TypeData, InputFields} from "./ProfileFormTypes"
 import { ref, computed } from 'vue';
-import { Console } from 'console'
+import Input from '../UI/Input/Input.vue';
 
 const dataForm = ref<TypeData>({
     nickname: "",
@@ -27,13 +24,16 @@ const dataForm = ref<TypeData>({
 
 const inputStatuses = ref<InputFields[]>([{
     title: "nickname",
-    status: true
+    status: false
 }, {
     title: "FIO",
-    status: true
+    status: false
 }, {
     title: "number",
-    status: true
+    status: false
+},{
+    title: "password",
+    status: false
 }
 ])
 
@@ -41,7 +41,12 @@ const isDisabled = computed(() =>
   inputStatuses.value.some(s => !s.status)
 
 );
-
+const updateValidationStatus = (payload: { field: string, status: boolean }) => {
+  const field = inputStatuses.value.find(f => f.title === payload.field)
+  if (field) {
+    field.status = payload.status
+  }
+}
 </script>
 
 <style scoped lang="scss">
