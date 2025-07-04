@@ -16,7 +16,7 @@ const showError = ref(false);
 const props = defineProps<Props>();
 const modelValue = defineModel<string>({ required: true });
 const emit = defineEmits(['validation']);
-const validateField = () => {
+const validateField = ():void => {
   const isValid = props.required 
     ? modelValue.value?.trim() !== '' 
     : true;

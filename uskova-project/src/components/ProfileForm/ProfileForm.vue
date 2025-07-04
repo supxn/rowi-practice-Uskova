@@ -41,7 +41,7 @@ const isDisabled = computed(() =>
   inputStatuses.value.some(s => !s.status)
 
 );
-const updateValidationStatus = (payload: { field: string, status: boolean }) => {
+const updateValidationStatus = (payload: { field: string, status: boolean }):void => {
   const field = inputStatuses.value.find(f => f.title === payload.field)
   if (field) {
     field.status = payload.status
