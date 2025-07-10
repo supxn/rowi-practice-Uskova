@@ -3,5 +3,5 @@ export interface Props {
   type?: string,
   required?: boolean,
   fieldName?: string,
-  validator?: (value: string) => boolean
+ validator?: (value: string) => { isValid: boolean; message?: string }
 }
