@@ -29,7 +29,7 @@ import { ref, computed } from 'vue'
 import Input from '../UI/Input/Input.vue';
 import InputPassword from '../UI/InputPassword.vue';
 
-const hasChanges = ref(false);
+const hasChanges = ref(true);
 const savedPassword = ref(false);
 const dataForm = ref<TypeData>({
     nickname: "",
