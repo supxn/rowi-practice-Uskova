@@ -10,8 +10,7 @@
         <ProfileForm />
     </div>
     <div v-else-if="tabStatus == 2" class="tabdiv">
-        В разработке
-        <Okak />
+        <DateSelection />
 
     </div>
     <div v-else="tabStatus==3" class="tabdiv">
@@ -24,6 +23,7 @@
 <script setup lang="ts">
 import ProfileForm from './ProfileForm/ProfileForm.vue'
 import Okak from './Okak.vue'
+import DateSelection from './DateSelection/DateSelection.vue';
 import { ref, computed } from 'vue';
 
 const tabStatus = ref(1);

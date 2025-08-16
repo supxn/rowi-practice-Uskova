@@ -4,5 +4,6 @@ export interface IProps {
   required?: boolean,
   fieldName?: string,
   disabled?: boolean,
+
  validator?: (value: string) => { isValid: boolean; message?: string }
 }

@@ -1,6 +1,6 @@
 <template>
   <input v-model="modelValue" :placeholder="placeholder" :type="type" :required="required" :disabled="disabled"
-    @blur="validateField" @input="handleInput" />
+    @blur="validateField" @input="handleInput" @click="handleClick"/>
   <span v-if="showError" class="error-text">{{ errorMessage }}</span>
 </template>
 
@@ -12,7 +12,11 @@ const errorMessage = ref('');
 const showError = ref(false);
 const props = defineProps<IProps>();
 const modelValue = defineModel<string>({ required: true });
-const emit = defineEmits(['useMask', 'validation']);
+const emit = defineEmits(['useMask', 'validation', 'click']);
+const handleClick = (event: MouseEvent) => {
+  emit('click', event);
+};
+
 const handleInput = (e: Event) => {
   validateField()
   emit('useMask', {
